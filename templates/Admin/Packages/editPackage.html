@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FFE6E6;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form method="post" >
+            <h1>Update Package:</h1>
+            <hr>
+            <table>
+                <tr>
+                    <td>Update Package Name:</td>
+                    <td><input type="text" name="name" value="{{pack[1]}}"></td>
+                </tr>
+                <tr>
+                    <td>Update Destination ID:</td>
+                    <td><input type="text" name="did" value="{{pack[2]}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Update Price</td>
+                    <td>
+                        <input type="text" name="price" value="{{pack[3]}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Update Duration:</td>
+                    <td><input type="text" name="duration" value="{{pack[5]}}"></td>
+                </tr>
+                <tr>
+                    <td>Update Details:</td>
+                    <td><input type="text" name="details" value="{{pack[6]}}"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Update Image:
+                    </td>
+                    <td>
+                        <input type="file" name="image_url" value="{{pack[4]}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Update Package"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

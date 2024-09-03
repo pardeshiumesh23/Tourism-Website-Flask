@@ -1,0 +1,25 @@
+import admin_op as admin
+from main import app
+import admin_login
+import user_op
+app.add_url_rule("/showAllDestinations",view_func=admin.showAllDestinations)
+app.add_url_rule("/addDestination",view_func=admin.addDestination,methods={"GET","POST"})
+app.add_url_rule("/edit/<did>",view_func=admin.editDestination,methods=["GET","POST"])
+app.add_url_rule("/delete/<did>",view_func=admin.deleteDestination,methods=["GET","POST"])
+app.add_url_rule("/showAllPackages",view_func=admin.showAllPackages)
+app.add_url_rule("/addPackage",view_func=admin.addPackage,methods=["GET","POST"])
+app.add_url_rule("/editPackage/<pid>",view_func=admin.editPackage,methods=["GET","POST"])
+app.add_url_rule("/deletePackage/<pid>",view_func=admin.deletePackage,methods=["GET","POST"])
+app.add_url_rule("/adminlogin",view_func=admin_login.adminlogin,methods=["GET","POST"])
+app.add_url_rule("/adminHome",view_func=admin_login.adminHome,methods=["GET","POST"])
+app.add_url_rule("/adminlogout",view_func=admin_login.adminlogout,methods=["GET","POST"])
+app.add_url_rule("/",view_func=user_op.userHome) 
+app.add_url_rule("/ViewDetails/<packid>",view_func=user_op.ViewDetails,methods=["GET","POST"])   
+app.add_url_rule("/ShowDestination/<did>",view_func=user_op.ShowDestination)
+app.add_url_rule("/register",view_func=user_op.register,methods=["GET","POST"])
+app.add_url_rule("/login",view_func=user_op.login,methods=["GET","POST"])
+app.add_url_rule("/logout",view_func=user_op.logout,methods=["GET","POST"])
+app.add_url_rule("/ShowCart",view_func=user_op.ShowCart,methods=["GET","POST"])
+app.add_url_rule("/MakePayment",view_func=user_op.MakePayment,methods=["GET","POST"])
+app.add_url_rule("/ShowOrder",view_func=user_op.ShowOrder,methods=["GET","POST"])
+app.add_url_rule("/about",view_func=user_op.about)

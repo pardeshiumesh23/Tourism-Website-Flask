@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FFE6E6;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form method="post" enctype="multipart/form-data">
+            <h1>Update Destination:</h1>
+            <hr>
+            <table>
+                <tr>
+                    <td>Update Destination Name:</td>
+                    <td><input type="text" name="name" value="{{dest[1]}}"></td>
+                </tr>
+                <tr>
+                    <td>Update Location:</td>
+                    <td><input type="text" name="location" value="{{dest[2]}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Update Description:</td>
+                    <td>
+                        <input type="text" name="description" value="{{dest[3]}}">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Select Image:</td>
+                    <td><input type="file" name="image_url" value="{{dest[4]}}"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Update Destination"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

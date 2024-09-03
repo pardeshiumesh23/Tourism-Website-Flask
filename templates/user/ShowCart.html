@@ -1,0 +1,70 @@
+{%extends "user/userHome.html"%}
+<center>
+{%block content%}
+<script type="text/javascript">
+    function decrement(id)
+    {
+        pno=document.getElementById(id);
+        val=parseInt(pno.value);
+        if (val>1)
+        {
+            val-=1
+        }
+        pno.value=val;
+    }
+    function increment(id)
+    { 
+        pno=document.getElementById(id);
+        val=parseInt(pno.value);
+        if (val<10)
+        {
+            val+=1
+        }
+        pno.value=val;
+    }
+</script>
+<div style="margin-left: 140px; margin-right: 140px; margin-bottom: 20px;">
+<table class="table">
+    <tr>
+        <th>Package Name</th><th>Price</th><th>Image</th><th>Total person</th><th>Total Amount</th><th>Edit</th><th>Delete</th>
+    </tr>
+    {%for order in orders%}
+    <form method="post">
+   <tr>
+        <td>{{order[1]}}</td>
+        <td>{{order[2]}}</td>
+        <td><img src="{{ url_for('static', filename=order[3])}}" style="height: 50px; width: 50px;" class="img-rounded"></td>
+        <td>
+            <button type="button" id="decrement1" onclick="decrement('pno{{order[0]}}')">-</button>    
+            <input type="text" value="{{order[4]}}" id="pno{{order[0]}}" size="1" name="pno"/>
+            <button type="button" id="increment1" onclick="increment('pno{{order[0]}}')">+</button>    
+        </td>
+        <td>{{order[5]}}</td>
+        <td>
+            <button type="submit" value="edit" name="action"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+              </svg></button>
+        </td>
+        <td>
+            <button type="submit" value="delete" name="action"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+              </svg></button>
+        </td>
+        <td>
+            <input type="hidden" name="cart_id" value="{{order[7]}}">
+        </td>
+   </tr>
+</form>
+    {%endfor%}
+    <tr>
+        <td></td><td></td><td></td><td></td><td>Total = {{total}}</td>
+    </tr>    
+    <tr>
+        <td>
+            <a href="/MakePayment"><button type="button" class="btn btn-primary form-control">Proceed to make payment</button></a>
+        </td>
+    </tr>
+</table>
+{%endblock%}
+</div>
+</center>

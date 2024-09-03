@@ -1,0 +1,13 @@
+CREATE VIEW pack_cart_vw AS 
+(SELECT p.pid, p.pack_name, p.price, p.image_url, m.no_of_person,
+    p.price * m.no_of_person AS "total_amount",
+    m.username,m.cart_id from mycart m inner join Packages p on m.pack_id = p.pid and m.status='waiting');
+
+    m.status='waiting'
+
+    CREATE VIEW order_vw AS 
+(SELECT p.pid, p.pack_name, p.price, p.image_url, m.no_of_person,
+    p.price * m.no_of_person AS "total_amount",
+    m.username,m.order_id from mycart m inner join Packages p on m.pack_id = p.pid and m.status='confirmed');
+
+

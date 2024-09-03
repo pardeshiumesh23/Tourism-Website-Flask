@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:#FFE6E6;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <a href="/adminHome">Go to Admin Home </a>
+        <h1>All Destinations </h1>
+        <a href="/addDestination">Add Desitnation</a>
+            <hr>
+        <table border="1">
+            <tr>
+                <th>Did</th><th>Name</th><th>Location</th><th>Description</th><th>Image</th><th>Edit</th><th>Delete</th>
+                {%for dest in desti%}
+                <tr>
+                    <td>{{dest[0]}}</td>
+                    <td>{{dest[1]}}</td>
+                    <td>{{dest[2]}}</td>
+                    <td>{{dest[3]}}</td>
+                    <td><img src="{{ url_for('static', filename=dest[4])}}" height="150" width="200"/></td>           
+                    <td><a href="/edit/{{dest[0]}}"><input type="button" value="Edit"></a></td>
+                    <td><a href="/delete/{{dest[0]}}"><input type="button" value="Delete"></a></td>
+                </tr>
+                {%endfor%}
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

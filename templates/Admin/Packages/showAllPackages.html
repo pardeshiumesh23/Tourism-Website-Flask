@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konkan Wonders</title>
+    <style>
+        body{
+            background-color:#FFE6E6;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <a href="/adminHome">Go to Admin Home </a>
+        <h1>All Packages: </h1>
+        <a href="/addPackage">Add Packages</a>
+            <hr>
+        <table border="1">
+            <tr>
+                <th>pid</th><th>Pack_Name</th><th>Did</th><th>Price</th><th>Duration</th><th>Details</th><th>Image</th> <th>Edit</th><th>Delete</th>
+                {%for pack in package%}
+                <tr>
+                    <td>{{pack[0]}}</td>          
+                    <td>{{pack[1]}}</td>          
+                    <td>{{pack[2]}}</td>          
+                    <td>{{pack[3]}}</td> 
+                    <td>{{pack[4]}}</td>                 
+                    <td>{{pack[5]}}</td>                              
+                    <td><img src="{{ url_for('static', filename=pack[6])}}" height="150" width="200"/></td>   
+                    <td><a href="/editPackage/{{pack[0]}}"><input type="button" value="Edit"></a></td>
+                    <td><a href="/deletePackage/{{pack[0]}}"><input type="button" value="Delete"></a></td>
+                </tr>
+                {%endfor%}
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
